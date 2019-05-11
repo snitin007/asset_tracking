@@ -69,9 +69,16 @@ class CentralsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def central_params
-      {
-        room_id: params[:central]["room_id"],
-        room_name: params[:central]["room_name"]
-      }
+      if !params[:central]
+        {
+          room_id: params["room_id"],
+          room_name: params["room_name"]
+        }
+      else
+        {
+          room_id: params[:central]["room_id"],
+          room_name: params[:central]["room_name"]
+        }
+      end
     end
 end
