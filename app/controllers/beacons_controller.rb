@@ -29,7 +29,7 @@ class BeaconsController < ApplicationController
     respond_to do |format|
       if @beacon.save
         format.html { render :show }
-        format.json { render :show, status: :created, location: @beacon }
+        format.json { json_response(@beacon) }
       else
         format.html { render :new }
         format.json { render json: @beacon.errors, status: :unprocessable_entity }
