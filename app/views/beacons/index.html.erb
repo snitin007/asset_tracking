@@ -18,11 +18,9 @@
         <td><%= beacon.central.room_name %></td>
         <td><%= beacon.orientation %></td>
         <td><%= beacon.distance %></td>
-        <% if user_signed_in? %>
           <td><%= link_to 'Edit', edit_central_beacon_path(id: beacon.id, cental_id: params[:central_id]) %></td>
           <td><%= link_to 'Destroy', central_beacon_path(id: beacon.id, cental_id: params[:central_id]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-      <% end %>
     <% end %>
   </tbody>
 </table>
