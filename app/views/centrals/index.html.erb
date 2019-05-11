@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Centrals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Room</th>
+      <th>Room name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @centrals.each do |central| %>
+      <tr>
+        <td><%= central.id %></td>
+        <td><%= central.room_id %></td>
+        <td><%= central.room_name %></td>
+        <td><%= link_to 'Show', central %></td>
+        <td><%= link_to 'Edit', edit_central_path(central) %></td>
+        <td><%= link_to 'Destroy', central, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Central', new_central_path %>

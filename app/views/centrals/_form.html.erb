@@ -1,0 +1,27 @@
+<%= form_with(model: central, local: true) do |form| %>
+  <% if central.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(central.errors.count, "error") %> prohibited this central from being saved:</h2>
+
+      <ul>
+      <% central.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :room_id %>
+    <%= form.text_field :room_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :room_name %>
+    <%= form.text_field :room_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

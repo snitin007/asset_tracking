@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @central.room_id %>
+</p>
+
+<p>
+  <strong>Room name:</strong>
+  <%= @central.room_name %>
+</p>
+
+<%= link_to 'Edit', edit_central_path(@central) %> |
+<%= link_to 'Back', centrals_path %>
+
+<div id="draw-map"></div>
+
+<script>
+	var map = document.getElementById('draw-map');
+	var params = { width: 285, height: 200 };
+	var two = new Two(params).appendTo(map);
+
+	var roundedRect = two.makeRoundedRectangle(10, 20, 500, 500, 2);
+	// to the screen
+	roundedRect.fill = '#FF8000';	
+	two.update();
+</script>

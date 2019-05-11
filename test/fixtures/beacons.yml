@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  central: one
+  orientation: 1
+  distance: 1
+
+two:
+  central: two
+  orientation: 1
+  distance: 1
