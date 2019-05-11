@@ -7,7 +7,7 @@
       <th scope="col">Sensor</th>
       <th scope="col">orientation</th>
       <th scope="col">distance</th>
-      <th scope="col">last_location</th>
+      <th scope="col">last update</th>
     </tr>
   </thead>
   <tbody>
@@ -17,7 +17,7 @@
       <td><%= beacon.sensor_id %></th>
       <td><%= beacon.orientation %></td>
       <td><%= beacon.distance %></td>
-      <td><%= beacon.updated_at %></td>
+      <td><%= beacon.updated_at.strftime("%H:%M:%S") %></td>
     </tr>
     <% end %>
   </tbody>
