@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @beacons.each do |beacon| %>
+    <% @beacons[0,15].each do |beacon| %>
       <tr>
         <td><%= beacon.central.room_name %></td>
         <td><%= beacon.orientation %></td>
