@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -19,8 +20,12 @@
 	var map = document.getElementById('draw-map');
 	var params = { width: 285, height: 200 };
 	var two = new Two(params).appendTo(map);
-	var circle = two.makeCircle(110, 110, 100);
-	circle.fill = "#881111";
+	var topGroup = two.makeGroup(),
+		bottomGroup = two.makeGroup(),
+		rect = two.makeRectangle(155, 100, 500, 150),
+		circ = two.makeCircle(10, 100, 10, 10);
+	circ.fill = "blue";
+	rect.fill = "red";
 
 	two.update();
 </script>
