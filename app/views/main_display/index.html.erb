@@ -3,7 +3,7 @@
 <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">Sensor</th>
       <th scope="col">orientation</th>
       <th scope="col">distance</th>
       <th scope="col">last_location</th>
@@ -12,7 +12,7 @@
   <tbody>
   	<% central.beacons.each do |beacon| %>
     <tr>
-      <th scope="row"><%= beacon.id %></th>
+      <th scope="row"><%= beacon.sensor_id %></th>
       <td><%= beacon.orientation %></td>
       <td><%= beacon.distance %></td>
       <td><%= beacon.updated_at %></td>
