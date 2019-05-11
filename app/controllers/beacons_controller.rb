@@ -69,6 +69,6 @@ class BeaconsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def beacon_params
-      params.permit(:central_id, :orientation, :distance)
+      params.permit(:central_id, :orientation, :distance, :sensor_id)
     end
 end
