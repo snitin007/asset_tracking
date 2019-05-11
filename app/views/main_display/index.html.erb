@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-  	<% central.beacons[0, 10].each_with_index do |beacon, index| %>
+  	<% central.beacons.last(10).reverse.each_with_index do |beacon, index| %>
     <tr>
       <th scope="row"><%= index + 1 %></th>
       <td><%= beacon.sensor_id %></th>
