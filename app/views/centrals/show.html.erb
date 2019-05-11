@@ -19,9 +19,8 @@
 	var map = document.getElementById('draw-map');
 	var params = { width: 285, height: 200 };
 	var two = new Two(params).appendTo(map);
+	var circle = two.makeCircle(110, 110, 100);
+	circle.fill = "#881111";
 
-	var roundedRect = two.makeRoundedRectangle(10, 20, 500, 500, 2);
-	// to the screen
-	roundedRect.fill = '#FF8000';	
 	two.update();
 </script>

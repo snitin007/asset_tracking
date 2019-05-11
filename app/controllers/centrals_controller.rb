@@ -25,7 +25,7 @@ class CentralsController < ApplicationController
   # POST /centrals.json
   def create
     @central = Central.new(central_params)
-   
+    puts "idhar #{params}"
     respond_to do |format|
       if @central.save
         format.html { redirect_to @central, notice: 'Central was successfully created.' }
@@ -69,6 +69,9 @@ class CentralsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def central_params
-      params.permit(:room_id, :room_name)
+      {
+        room_id: params[:central]["room_id"],
+        room_name: params[:central]["room_name"]
+      }
     end
 end

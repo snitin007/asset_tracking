@@ -1,4 +1,4 @@
-<%= form_with(model: central, local: true) do |form| %>
+<%= form_with(model: @central, local: true) do |form| %>
   <% if central.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(central.errors.count, "error") %> prohibited this central from being saved:</h2>
