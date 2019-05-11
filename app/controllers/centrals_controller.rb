@@ -10,6 +10,8 @@ class CentralsController < ApplicationController
   # GET /centrals/1
   # GET /centrals/1.json
   def show
+    @sensor_count = sensors_in_room_count
+    @sensor = sensors_in_room
   end
 
   # GET /centrals/new
@@ -67,6 +69,27 @@ class CentralsController < ApplicationController
       @central = Central.find(params[:id])
     end
 
+    def sensors_in_room_count
+      @central = Central.find(params[:id])
+      @central.beacons[0,10].pluck(:sensor_id).uniq
+    end
+
+    def sensors_in_room
+      @beacons = Central.find(params[:id]).beacons
+      @sensors = Array.new
+      sensors_in_room_count.each do |id|
+        record = @beacons.where(sensor_id: id).last
+        @sensors.push(record) if record.updated_at > 2.minutes.ago
+      end
+      @sensors
+      # @uniq_ids = @central.beacons.select(:sensor_id).uniq
+      # @uniq_ids.map do |id| 
+      #   Beacon.where("updated_at < ?", 2.minutes.ago).each do |beacon|
+
+      #   end
+      # end
+      # @central.beacons.where("updated_at < ?", 2.minutes.ago).select(:sensor_id, :orientation, :distance).select{|x, y, z|}
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def central_params
       if !params[:central]

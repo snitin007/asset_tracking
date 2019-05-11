@@ -18,14 +18,43 @@
 
 <script>
 	var map = document.getElementById('draw-map');
-	var params = { width: 285, height: 200 };
+	var width = $("#draw-map").parent().width();
+	var height = $(window).height()/2;
+
+	var base_height = width-40;
+	var base_width = width/3.5;
+	var base_mid_x = width/2;
+	var base_mid_y = width/4;
+
+	var door_mid_x = base_mid_x-base_height/2 + base_width/2.9;
+	var door_mid_y = base_mid_y - base_width/2;
+	var door_height = base_height * 0.15;
+	var door_width = 10;
+
+	var beacon_rad = 10;
+	var beacon_mid_x = base_mid_x + base_height/2 - beacon_rad;
+	var beacon_mid_y = base_mid_y - base_width/2 + beacon_rad;
+
+	var sensor_list = [];
+	<% if @sensor_count %>
+		<% @sensor.each do |sensor| %>
+		var sensors = sensor_list.push([<%=sensor.orientation%>, <%=sensor.distance%>]);
+		<% end %>
+	<% end %>
+	//orientation, distance in 2d array
+	console.log(sensor_list);
+
+	var params = { width: width, height: height*2 };
 	var two = new Two(params).appendTo(map);
 	var topGroup = two.makeGroup(),
+		topGroup2 = two.makeGroup(),
 		bottomGroup = two.makeGroup(),
-		rect = two.makeRectangle(155, 100, 500, 150),
-		circ = two.makeCircle(10, 100, 10, 10);
+		base = two.makeRectangle(base_mid_x, base_mid_y, base_height, base_width),
+		rect = two.makeRectangle(door_mid_x, door_mid_y, door_height, door_width),
+		circ = two.makeCircle(beacon_mid_x, beacon_mid_y, beacon_rad);
 	circ.fill = "blue";
-	rect.fill = "red";
+	base.fill = "red";
+	rect.fill = "green";
 
 	two.update();
 </script>
