@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-  	<% central.beacons.each do |beacon| %>
+  	<% central.beacons.[0, 20].each do |beacon| %>
     <tr>
       <th scope="row"><%= beacon.sensor_id %></th>
       <td><%= beacon.orientation %></td>
