@@ -75,7 +75,7 @@ class BeaconsController < ApplicationController
       else 
         res = (0.89976)*(ratio ** (7.7095)) + 0.111;    
       end
-      res * 1000
+      (res * 2) * 1000
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
