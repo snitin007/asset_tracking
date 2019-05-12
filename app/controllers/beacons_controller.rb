@@ -25,7 +25,7 @@ class BeaconsController < ApplicationController
   # POST /beacons.json
   def create
     @beacon = Beacon.new(beacon_params)
-
+    @beacon.update_attributes(distance: rssi_to_distance)
     respond_to do |format|
       if @beacon.save
         format.html { render :show }
@@ -65,6 +65,10 @@ class BeaconsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_beacon
       @beacon = Beacon.find(params[:id])
+    end
+
+    def rssi_to_distance
+      10**(-59 - (beacon_params[:distance]) / 10 * 3.5 ) * 100
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
