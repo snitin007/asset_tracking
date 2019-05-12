@@ -72,7 +72,7 @@ class CentralsController < ApplicationController
 
     def sensors_in_room_count
       @central = Central.find(params[:id])
-      @central.beacons[0,10].pluck(:sensor_id).uniq
+      @central.beacons.pluck(:sensor_id).uniq
     end
 
     def sensors_in_room
@@ -80,7 +80,7 @@ class CentralsController < ApplicationController
       @sensors = Array.new
       sensors_in_room_count.each do |id|
         record = @beacons.where(sensor_id: id).last
-        @sensors.push(record) if record.updated_at > 2.minutes.ago
+        @sensors.push(record) if record.updated_at > 50.minutes.ago
       end
       @sensors
       # @uniq_ids = @central.beacons.select(:sensor_id).uniq
