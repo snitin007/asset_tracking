@@ -2,6 +2,7 @@
 <thead>
     <tr>
       <th scope="col">ID</th>
+      <th scope="col">Emp Name</th>
       <th scope="col">Room</th>
       <th scope="col">Last update</th>
     </tr>
@@ -11,6 +12,11 @@
     <% @locations.each do |sensor| %>
     <tr>
       <td><%= sensor.id %></th>
+      <% if sensor.employee %>
+      <td><%= sensor.employee.name %></th>
+      <% else %>
+      <td>undefined</td>
+      <%end%>
       <td><%= sensor.central.room_name %></td>
       <td><%= sensor.updated_at.strftime("%H:%M:%S") %></td>
     </tr>
