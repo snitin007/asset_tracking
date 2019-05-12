@@ -1,6 +1,6 @@
 <h1>Editing Central</h1>
 
 <%= render 'form', central: @central %>
-
+<%= link_to 'Destroy', @central, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <%= link_to 'Show', @central %> |
 <%= link_to 'Back', centrals_path %>

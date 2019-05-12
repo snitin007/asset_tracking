@@ -1,5 +1,6 @@
 class CentralsController < ApplicationController
   before_action :set_central, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:index, :new, :show]
 
   # GET /centrals
   # GET /centrals.json

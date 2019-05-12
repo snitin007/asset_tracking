@@ -1,28 +1,24 @@
 
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Room:</strong>
+<h1 class="text-center">Beacons in room</h1>
+<div class="jumbotron">
+  <h1 class="display-4"> <%= @central.room_name %>
+</h1>
+<strong>Room number:</strong>
   <%= @central.room_id %>
-</p>
+  <div id="draw-map"></div>
 
-<p>
-  <strong>Room name:</strong>
-  <%= @central.room_name %>
-</p>
-
-<%= link_to 'Edit', edit_central_path(@central) %> |
-<%= link_to 'Back', centrals_path %>
-
-<div id="draw-map"></div>
-
+<%if user_signed_in? %>
+	<%= link_to 'Edit', edit_central_path(@central) %> 
+<% end %>
+</div>
 <script>
 	var map = document.getElementById('draw-map');
 	var width = $("#draw-map").parent().width();
 	var height = $(window).height()/2;
 
 	var base_height = width-40;
-	var base_width = width/3.5;
+	var base_width = width/3;
 	var base_mid_x = width/2;
 	var base_mid_y = width/4;
 
@@ -31,9 +27,14 @@
 	var door_height = base_height * 0.15;
 	var door_width = 10;
 
+	var door2_mid_x = base_mid_x-base_height/2 + base_width * 2;
+	var door2_mid_y = base_mid_y - base_width/2;
+	var door2_height = base_height * 0.15;
+	var door2_width = 10;
+
 	var beacon_rad = 10;
-	var beacon_mid_x = base_mid_x + base_height/2 - beacon_rad;
-	var beacon_mid_y = base_mid_y - base_width/2 + beacon_rad;
+	var beacon_mid_x = base_mid_x - base_height/2 + beacon_rad;
+	var beacon_mid_y = base_mid_y + base_width/2 - beacon_rad;
 
 	var sensor_list = [];
 	<% if @sensor_count %>
@@ -44,17 +45,19 @@
 	//orientation, distance in 2d array
 	console.log(sensor_list);
 
-	var params = { width: width, height: height*2 };
+	var params = { width: width, height: height };
 	var two = new Two(params).appendTo(map);
 	var topGroup = two.makeGroup(),
 		topGroup2 = two.makeGroup(),
 		bottomGroup = two.makeGroup(),
 		base = two.makeRectangle(base_mid_x, base_mid_y, base_height, base_width),
-		rect = two.makeRectangle(door_mid_x, door_mid_y, door_height, door_width),
+		door1 = two.makeRectangle(door_mid_x, door_mid_y, door_height, door_width),
+		door2 = two.makeRectangle(door2_mid_x, door2_mid_y, door2_height, door2_width),
 		circ = two.makeCircle(beacon_mid_x, beacon_mid_y, beacon_rad);
 	circ.fill = "blue";
 	base.fill = "red";
-	rect.fill = "green";
+	door1.fill = "green";
+	door2.fill = "green";
 
 	two.update();
 </script>

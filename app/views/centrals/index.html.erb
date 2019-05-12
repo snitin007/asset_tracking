@@ -8,6 +8,7 @@
       <th scope="col">ID</th>
       <th scope="col">Room</th>
       <th scope="col">Room Name</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -17,12 +18,19 @@
         <td><%= central.room_id %></td>
         <td><%= central.room_name %></td>
         <% if user_signed_in? %>
+        <td><%= link_to 'Show', central_path(central) %>|
         <td><%= link_to 'Edit', edit_central_path(central) %></td>
-        <td><%= link_to 'Destroy', central, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+        <td><%= link_to 'Show', central_path(central) %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<% if user_signed_in? %>
 <%= link_to 'New Central', new_central_path, class: "btn btn-light" %>
+<% else %>
+<%= button_to "Login", user_session_path, class: "btn btn-primary"%>
+<small class="form-text text-muted">sign in to add register new devices</small>
+<% end %>
