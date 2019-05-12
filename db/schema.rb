@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_11_182622) do
+ActiveRecord::Schema.define(version: 2019_05_12_014922) do
 
   create_table "beacons", force: :cascade do |t|
     t.integer "central_id"
     t.integer "orientation"
-    t.integer "distance"
+    t.float "distance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sensor_id"
