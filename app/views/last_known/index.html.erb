@@ -1,0 +1,19 @@
+<table class="table table-dark">
+<thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Room</th>
+      <th scope="col">Last update</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @locations.each do |sensor| %>
+    <tr>
+      <td><%= sensor.id %></th>
+      <td><%= sensor.central.room_name %></td>
+      <td><%= sensor.updated_at.strftime("%H:%M:%S") %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
