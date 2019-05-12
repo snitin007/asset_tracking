@@ -51,15 +51,12 @@
 		return beacon_mid_x + x*2.8 - 10;
 	}
 
-	console.log(x_distance(beacon_mid_x, base_height, 6.23, 35));
-
 	function y_distance(beacon_mid_y, base_height, distance, angle) {
 		var perpendicular = Math.abs(distance * (Math.sin(angle * Math.PI/180)));
 		var base_percent = perpendicular / 10;
 		var y = (base_percent / 100) * base_height;
 		return beacon_mid_y - y + 10;
 	}
-	// console.log(y_distance(beacon_mid_x, base_height, 6.23, 35));
 	//orientation, distance in 2d array
 	var circles = [];
 
