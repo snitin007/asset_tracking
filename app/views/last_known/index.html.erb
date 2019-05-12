@@ -11,7 +11,7 @@
   <tbody>
     <% @locations.each do |sensor| %>
     <tr>
-      <td><%= sensor.id %></th>
+      <td><%= sensor.sensor_id %></th>
       <% if sensor.employee %>
       <td><%= sensor.employee.name %></th>
       <% else %>
