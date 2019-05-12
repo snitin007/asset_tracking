@@ -25,7 +25,7 @@ class BeaconsController < ApplicationController
   # POST /beacons.json
   def create
     @beacon = Beacon.new(beacon_params)
-    @beacon.update_attributes(distance: rssi_to_distance)
+
     respond_to do |format|
       if @beacon.save
         format.html { render :show }
@@ -67,8 +67,8 @@ class BeaconsController < ApplicationController
       @beacon = Beacon.find(params[:id])
     end
 
-    def rssi_to_distance
-      10**(-59 - (beacon_params[:distance]) / 10 * 3.5 ) * 100
+    def rssi_to_distance(dist)
+      10**((-59 -(dist)) / (10 * 3.5) ) * 100
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -77,14 +77,14 @@ class BeaconsController < ApplicationController
       {
         central_id: params[:central_id], 
         orientation: params[:orientation],
-        distance: params[:distance], 
+        distance: rssi_to_distance(params[:distance]), 
         sensor_id: params[:sensor_id]
       }
       else
       {
         central_id: params[:beacon]["central_id"], 
         orientation: params[:beacon]["orientation"],
-        distance: params[:beacon]["distance"], 
+        distance: rssi_to_distance(params[:beacon]["distance"]), 
         sensor_id: params[:beacon]["sensor_id"]
       }
     end
