@@ -77,14 +77,14 @@ class BeaconsController < ApplicationController
       {
         central_id: params[:central_id], 
         orientation: params[:orientation],
-        distance: rssi_to_distance(params[:distance]), 
+        distance: rssi_to_distance(params[:distance].to_f).round(3), 
         sensor_id: params[:sensor_id]
       }
       else
       {
         central_id: params[:beacon]["central_id"], 
         orientation: params[:beacon]["orientation"],
-        distance: rssi_to_distance(params[:beacon]["distance"]), 
+        distance: rssi_to_distance(params[:beacon]["distance"].to_f).round(3), 
         sensor_id: params[:beacon]["sensor_id"]
       }
     end
