@@ -68,14 +68,14 @@ class BeaconsController < ApplicationController
     end
 
     def rssi_to_distance(dist)
-      ratio = dist*1.0/(-60)
+      ratio = dist*1.0/(-65)
       res = 0
       if (ratio < 1.0) 
         res = ratio ** 10
       else 
         res = (0.89976)*(ratio ** (7.7095)) + 0.111;    
       end
-      (res * 5) * 1000
+      res * 1000
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
