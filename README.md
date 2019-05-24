@@ -2,7 +2,8 @@
 
 Asset Tracking using Magnetometry and a self-sustained WiFi network
 
-![little 3d printed case](https://user-images.githubusercontent.com/10133520/58359398-92c96b00-7e83-11e9-9285-94ef4a91110a.png =50x)
+<img alt="little 3d printed case" src="https://user-images.githubusercontent.com/10133520/58359398-92c96b00-7e83-11e9-9285-94ef4a91110a.png"  width="60%">
+
 The aim of the project is to build an asset tracking system using the concept of
 magnetometry. An asset tracking system is simply a wireless sensor network for
 indoor positioning of assets and objects.
@@ -21,7 +22,8 @@ true magnetic north since the Earth magnetic field can be relatively used anywhe
 accross the globe.
 The angle of deviation and inclination could be used to find relative positions
 between objects.
-![Finding location](https://user-images.githubusercontent.com/10133520/58359438-bab8ce80-7e83-11e9-93c7-c7b5b1821c15.png)
+
+<img alt="Finding location" src="https://user-images.githubusercontent.com/10133520/58359438-bab8ce80-7e83-11e9-93c7-c7b5b1821c15.png"  width="50%">
 ## Hardware used 
  - RaspberryPi
  - HMC5883L Digital compass
