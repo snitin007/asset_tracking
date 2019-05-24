@@ -47,3 +47,7 @@ of the user in the building.
 in that room.
 - In the home view, the user can click on **show** to view a 2D map of the room where the person
 is located.
+
+### Run
+- `bundle install`
+- `rails s`
