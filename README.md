@@ -24,6 +24,7 @@ The angle of deviation and inclination could be used to find relative positions
 between objects.
 
 <img alt="Finding location" src="https://user-images.githubusercontent.com/10133520/58359438-bab8ce80-7e83-11e9-93c7-c7b5b1821c15.png"  width="50%">
+
 ## Hardware used 
  - RaspberryPi
  - HMC5883L Digital compass
