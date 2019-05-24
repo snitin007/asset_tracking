@@ -2,7 +2,7 @@
 
 Asset Tracking using Magnetometry and a self-sustained WiFi network
 
-![little 3d printed case](https://user-images.githubusercontent.com/10133520/58359398-92c96b00-7e83-11e9-9285-94ef4a91110a.png)
+![little 3d printed case](https://user-images.githubusercontent.com/10133520/58359398-92c96b00-7e83-11e9-9285-94ef4a91110a.png =50x)
 The aim of the project is to build an asset tracking system using the concept of
 magnetometry. An asset tracking system is simply a wireless sensor network for
 indoor positioning of assets and objects.
